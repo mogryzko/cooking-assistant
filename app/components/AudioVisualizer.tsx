@@ -1,11 +1,10 @@
 'use client';
 
-interface AudioVisualizerProps {
-  audioLevel: number;
-  transcript: string;
-}
+import { useAudioRecognition } from '../hooks/useAudioRecognition';
 
-export function AudioVisualizer({ audioLevel, transcript }: AudioVisualizerProps) {
+export function AudioVisualizer() {
+  const { audioLevel, transcript } = useAudioRecognition();
+
   return (
     <main 
       className="flex min-h-screen items-center justify-center"
