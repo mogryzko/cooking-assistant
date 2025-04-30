@@ -1,7 +1,5 @@
 'use client';
 
-import WaveformIcon from './WaveformIcon';
-
 interface AudioVisualizerProps {
   audioLevel: number;
   transcript: string;
@@ -9,26 +7,16 @@ interface AudioVisualizerProps {
 
 export function AudioVisualizer({ audioLevel, transcript }: AudioVisualizerProps) {
   return (
-    <main className="flex min-h-screen items-center justify-center">
+    <main 
+      className="flex min-h-screen items-center justify-center"
+      style={{
+        boxShadow: `inset 0 0 ${20 + audioLevel * 340}px rgba(0, 122, 255, ${0.3 + audioLevel * 1.8})`,
+        transition: 'box-shadow 0.1s ease-out'
+      }}
+    >
       <div className="flex flex-col items-center">
-        <div className="relative flex items-center justify-center" style={{ height: '28rem' }}>
-          <div 
-            className="rounded-full bg-black p-8 flex items-center justify-center absolute"
-            style={{
-              width: `${16 + audioLevel * 12}rem`,
-              height: `${16 + audioLevel * 12}rem`,
-              color: 'white',
-              transition: 'all 0.1s ease-out',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)'
-            }}
-          >
-            <WaveformIcon />
-          </div>
-        </div>
         <p className="text-xl">{transcript}</p>
       </div>
     </main>
   );
-} 
+}

@@ -11,9 +11,9 @@ export default function Home() {
   const audioLevel = useAudioLevel();
   const transcript = useSpeechRecognition();
 
-  if (!isRecipeLoaded) {
-    return <RecipeUrlForm onSubmit={() => setIsRecipeLoaded(true)} />;
-  }
+  // if (!isRecipeLoaded) {
+  //   return <RecipeUrlForm onSubmit={() => setIsRecipeLoaded(true)} />;
+  // }
 
   return <AudioVisualizer audioLevel={audioLevel} transcript={transcript} />;
 }
